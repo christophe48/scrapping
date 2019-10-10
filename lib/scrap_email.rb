@@ -36,21 +36,22 @@ def get_townhall_email()
 end
 
 
-def make_hashe(townhall, get_townhall_email)# je créé un hash alimentant un tableau
+def make_hashe()# je créé un hash alimentant un tableau
   i = 0
-  #email = get_townhall_email()
-  #nom_ville = townhall(page)
+  email = get_townhall_email()
+  nom_ville = townhall(page)
   tableau_ville_mail = []
+  
   while i < get_townhall_email.length
     nouveau_hash = Hash.new()
-    nouveau_hash[townhall[i].text] = get_townhall_email[i].text
+    nouveau_hash[tableau_ville_mail[i].text] = email[i].text
     tableau_ville_mail << nouveau_hash
     i += 1
   end
   return tableau_ville_mail
 end
 
-puts make_hashe(townhall(page), get_townhall_email)
+puts make_hashe()
 #townhall_url
 #get_townhall_urls(page)
 #puts get_townhall_email()
