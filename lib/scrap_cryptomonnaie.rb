@@ -24,11 +24,12 @@ def method_name()
 	tabl = [] # on créé un tableau vide pour stocker les hash
 	while i < valeur.length
 		nouveauHash = Hash.new()# on créé un nouveau hash à chaque tour de boucle
-		nouveauHash[crypto[i].text] = valeur[i].text.delete("$") # on rentre les valeurs dans le hash
+		nouveauHash[crypto[i].text] = valeur[i].text.delete('$').to_f # on rentre les valeurs dans le hash
 		tabl << nouveauHash # on met chaque hash dans le tableau
 		i+=1
 	end
+	puts tabl
 	return tabl
 end
 
-puts method_name()
+method_name()
