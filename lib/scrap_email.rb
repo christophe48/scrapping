@@ -41,10 +41,10 @@ def make_hashe()# je créé un hash alimentant un tableau
   email = get_townhall_email()
   nom_ville = townhall(page)
   tableau_ville_mail = []
-  
-  while i < get_townhall_email.length
+
+  while i < nom_ville.length
     nouveau_hash = Hash.new()
-    nouveau_hash[tableau_ville_mail[i].text] = email[i].text
+    nouveau_hash[nom_ville[i].text] = email[i].text
     tableau_ville_mail << nouveau_hash
     i += 1
   end
