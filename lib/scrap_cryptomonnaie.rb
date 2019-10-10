@@ -1,17 +1,18 @@
 require 'nokogiri'
 require 'open-uri'
-
-$page = Nokogiri::HTML(open("https://coinmarketcap.com/all/views/all/"))
+def page
+	return Nokogiri::HTML(open("https://coinmarketcap.com/all/views/all/"))
+end
 #//a[@class='currency-name-container link-secondary']
 def crypto() # je récupère les noms des cryptos
 	# td sont les colonnes du tableau du site et tr sont les lignes
 	# si je veux la 3 ème colonne je fait //td[3]
-	crypto = $page.xpath('//td[3]')
+	crypto = page.xpath('//td[3]')
 	return crypto 
 end
 
 def valeur() # je récupère les valeurs de prix
-	valeur = $page.xpath("//a[@class='price']") # Dans le inspec nous pouvons qu'il existe une class 'price' 
+	valeur = page.xpath("//a[@class='price']") # Dans le inspec nous pouvons qu'il existe une class 'price' 
 	#le lien /a signifie que les valeurs sont des liens hypertext
 	return valeur
 end
@@ -29,5 +30,3 @@ def method_name()
 	end
 	return tabl
 end
-
-puts method_name
