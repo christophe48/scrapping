@@ -6,13 +6,8 @@ def page
 end
 
 def deputes(page)
-	tableau = []
-	i = 0
 	list_deputes = page.xpath("//ul[@class='col3']//li//a")
-	list_deputes.each do |townhall_url|
-      puts tableau << townhall_url.content
-  	end
-  	return tableau
+  	return list_deputes
 end
 
 def get_deputes_urls(page)
@@ -31,7 +26,7 @@ def get_deputes_email()
   deputes_email = []
   while i < table.length
     page2 = Nokogiri::HTML(open(table[i]))# ouverture d'une nouvelle page pour chaque élément du tableau
-	puts deputes_email << page2.xpath("//*[@id='haut-contenu-page']/article/div[3]/div/dl/dd[4]/ul/li[2]/a/text()")
+ deputes_email << page2.xpath("//*[@id='haut-contenu-page']/article/div[3]/div/dl/dd[4]/ul/li[2]/a/text()")
     i += 1
   end
   return deputes_email
@@ -51,5 +46,6 @@ def make_hashe()# je créé un hash alimentant un tableau
   end
   return tableau_depute_mail
 end
+
 
 puts make_hashe()
